@@ -1,0 +1,37 @@
+/* Layout display */
+.slide-row{
+    display: block;
+    border: 1px solid #c4c4c4;
+    margin-bottom: 1rem;
+    padding: .5rem;
+}
+.slide-content{
+    border-top: 1px solid #c4c4c4;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: .5rem;
+}
+.slide-col label{
+    display: block;
+    margin-bottom: .4rem;
+}
+/* Style inputs */
+.slide-number{
+    border: none!important;
+    box-shadow: none!important;
+}
+
+.dfr-img-upload, .dfr-m-img-upload{
+    display: block;
+}
+.dfr-remove, .dfr-m-remove{
+    display: block;
+    margin-top: .4rem;
+}
+.dfr-img-upload img, .dfr-m-img-upload img{
+    display: block;
+    max-width: 150px;
+    height: auto;
+}
