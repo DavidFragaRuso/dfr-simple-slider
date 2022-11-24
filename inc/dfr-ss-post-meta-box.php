@@ -37,8 +37,6 @@ function slide_content_meta_box_callback( $post ) {
             'btn-text' => ''
         );
     }
-
-    var_dump( $repeater_slider_content );
     
     // Add a nounce field to check on save.
     wp_nonce_field( basename( __FILE__ ), 'slide-content' );
@@ -146,7 +144,7 @@ function slide_content_meta_box_callback( $post ) {
         }
         ?>
         <!-- empty hidden one for jQuery -->
-        <div class="slide-row empty-row" style="display:none;">
+        <div class="slide-row empty-row screen-reader-text"">
             <div class="slide-header">
                 <!-- Slider number -->
                 <div class="slide-col">
@@ -157,7 +155,8 @@ function slide_content_meta_box_callback( $post ) {
                 <!-- Slide Background and images -->
                 <div class="slide-col">
                     <label><h4><?php _e( 'Slide Backgorund Color', 'dfr_simple_slider' ); ?></h4></label>
-                    <input name="slide[%s][bg-color]" type="text" value="#dddddd" class="color-field" />
+                    <!--<input name="slide[%s][bg-color]" type="text" value="#dddddd" class="color-field" />-->
+                    <input name="slide[%s][bg-color]" type="text" value="" class="color-field" />
                     <h4><?php _e( 'Image upload for desktop', 'dfr_simple_slider' ); ?></h4>
                     <a href="#" class="dfr-img-upload button"><?php _e( 'Upload image', 'dfr_simple_slider' ) ?></a>
                     <a href="#" class="dfr-remove" style="display:none"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>

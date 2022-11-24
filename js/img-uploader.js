@@ -6,7 +6,7 @@ jQuery( function($){
     
     
         $('.color-field').each( function() {
-               $( this ).wpColorPicker(); 
+            $( this ).wpColorPicker(); 
         } );
     
     
@@ -109,36 +109,46 @@ jQuery( function($){
     /**
      *  Manage repeater metaboxes.
      */
+    
+     $( '#add-row' ).click(function(e) {
+        e.preventDefault(); 
 
-     $( '#add-row' ).click(function() { 
         var row = $('.slide-row.empty-row').clone(true);
+
+        console.log(row);
 
         var rowCount = $('#repeatable-fieldset-one').find('.slide-row').size();
 
-        //console.log( rowCount );
+        console.log(rowCount);
 
-        row.find('.color-field').each(function() {
+        row.find( 'input, textarea, label, div' ).each( function() {
+
+            if ( !! $(this).attr('id') ){
+                $(this).attr('id',  $(this).attr('id').replace('[%s]', '[' + (rowCount - 1) + ']') );
+            }
+                
+            if ( !! $(this).attr('name') ){
+                $(this).attr('name',  $(this).attr('name').replace('[%s]', '[' + (rowCount - 1) + ']') );
+            }
+
+            if ( !! $(this).attr('for') ){
+                $(this).attr('for',  $(this).attr('for').replace('[%s]', '[' + (rowCount - 1) + ']') );
+            }
             
-            $(this).wpColorPicker();
-            console.log( 'Llega' );
+            if( !! $(this).hasClass('wp-picker-container') ){
+                console.log('hay un color picker');
+                $(this).replaceWith( ('<input name="slide[' + (rowCount - 1) + '][bg-color]" type="text" value="" class="color-field" />') );
+            }
+            
+                
         } );
 
-        row.find( 'input, textarea, label' ).each( function() {
+        row.find('input[name="slide[' + (rowCount - 1) + '][bg-color]"]').wpColorPicker();
+        
+        row.removeClass( 'empty-row screen-reader-text' );
 
-            //console.log( 'Aqui si' );
-
-            if ( !! $(this).attr('id') )
-                $(this).attr('id',  $(this).attr('id').replace('[%s]', '[' + rowCount + ']') );
-
-            if ( !! $(this).attr('name') )
-                $(this).attr('name',  $(this).attr('name').replace('[%s]', '[' + rowCount + ']') );
-
-            if ( !! $(this).attr('for') )
-                $(this).attr('for',  $(this).attr('for').replace('[%s]', '[' + rowCount + ']') );
-        } );
-
-        row.removeClass( 'empty-row' ).css( 'display', 'block' );
         row.insertBefore( '#repeatable-fieldset-one .slide-row:last' );
+
         return false;
 
     } );
@@ -152,7 +162,7 @@ jQuery( function($){
      *  Colapsible panels (not in use - DEV)
      */
 
-    $(document).ready(function() {
+    //$(document).ready(function() {
         // hide all div with class .content by default
         //$('.slide-row .slide-content').hide(); 
       
@@ -161,5 +171,5 @@ jQuery( function($){
         $('.slide-row .slide-header').click(function() { 
           $(this).parent().find('.slide-content').slideToggle(500);
         });
-    });
+    //});
 });
