@@ -50,10 +50,8 @@ function slide_content_meta_box_callback( $post ) {
             ?>
             <div class="slide-row ui-state-default">
                 <div class="slide-header">
-                    <!-- Slider number -->
-                    <div class="slide-col">
-                        <input type="text" class="slide-number" id="slide-num" disabled="disabled" value="<?php _e( 'Slide', 'dfr_simple_slider' ) ?> <?php echo $i + 1; ?>">
-                    </div>
+                    <h3><?php _e( 'Slide', 'dfr_simple_slider' ) ?> <?php echo $i + 1; ?></h3>
+                    <a class="button button-small remove-row" href="#1"><?php _e( 'Remove Slide', 'dfr_simple_slider' ); ?></a>
                 </div>
                 <div class="slide-content">
                     <!-- Slide Background and images -->
@@ -102,30 +100,48 @@ function slide_content_meta_box_callback( $post ) {
                     <!-- Content Align -->
                     <div class="slide-col">
                         <label><h4><?php _e( 'Content Align', 'dfr_simple_slider' ); ?></h4></label>
-                        <input type="radio" id="align-left" name="slide[<?php echo $i ?>][align]" value="left" <?php checked(  $field['align'], 'left' ); ?> ></input>
-                        <label for="align-left"><?php _e( 'Left', 'dfr_simple_slider' ) ?></label>
-                        <input type="radio" id="align-center" name="slide[<?php echo $i ?>][align]" value="center" <?php checked( $field['align'], 'center' ); ?> ></input>
-                        <label for="align-center">
-                            <?php //_e( 'center', 'dfr_simple_slider' ); ?>
-                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                                width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
-                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="40" y1="1.75" x2="40" y2="78.875"/>
-                                <rect x="20.188" y="5.25" fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="39.625" height="8.875"/>
-                                <rect x="4.313" y="19.75" fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="71.375" height="38"/>
-                                <path fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M63.154,68.813c0,3.279-1.748,5.938-3.904,5.938
-                                    H22.126c-2.156,0-3.904-2.658-3.904-5.938l0,0c0-3.279,1.748-5.938,3.904-5.938h37.123C61.406,62.875,63.154,65.533,63.154,68.813
-                                    L63.154,68.813z"/>
-                            </svg>
-                        </label>
-                        <input type="radio" id="align-right" name="slide[<?php echo $i ?>][align]" value="right" <?php checked( $field['align'], 'right' ); ?> ></input>
-                        <label for="align-right"><?php _e( 'Right', 'dfr_simple_slider' ) ?></label>
+                        <div class="content-align">
+                            <div class="radio-row">
+                                <input type="radio" id="align-left" name="slide[<?php echo $i ?>][align]" value="left" <?php checked(  $field['align'], 'left' ); ?> ></input>
+                                <label for="align-left">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                    <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                    <rect x="11.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                    <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="6.667" y1="77.771" x2="6.667" y2="2.479"/>
+                                </svg>
+                                </label>
+                            </div>
+                            <div class="radio-row">
+                                <input type="radio" id="align-center" name="slide[<?php echo $i ?>][align]" value="center" <?php checked( $field['align'], 'center' ); ?> ></input>
+                                <label for="align-center">
+                                    <?php //_e( 'center', 'dfr_simple_slider' ); ?>
+                                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                        <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                        <rect x="19.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                        <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="39.667" y1="12.771" x2="39.667" y2="2.479"/>
+                                        <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="39.667" y1="77.521" x2="39.667" y2="67.229"/>
+                                        <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="40" y1="37.438" x2="40" y2="42.938"/>
+                                    </svg>
+                                </label>
+                            </div>
+                            <div class="radio-row">
+                                <input type="radio" id="align-right" name="slide[<?php echo $i ?>][align]" value="right" <?php checked( $field['align'], 'right' ); ?> ></input>
+                                <label for="align-right">
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                    <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                    <rect x="27.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                    <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="73.667" y1="77.771" x2="73.667" y2="2.479"/>
+                                </svg>
+                                </label>
+                            </div>
+                        </div>
                     </div>
                     <!-- Slide title and content -->
                     <div class="slide-col">
                         <label><h4><?php _e( 'Slide Title', 'dfr_simple_slider' ); ?></h4></label>
                         <input type="text" name="slide[<?php echo $i ?>][title]" value="<?php  echo esc_attr( $field['title'] ); ?>" />
                         <label><h4><?php _e( 'Slide Text', 'dfr_simple_slider' ) ?></h4></label>
-                        <textarea name="slide[<?php echo $i ?>][text]" cols="50" rows="10" maxlength="150" /><?php echo esc_attr( $field['text'] ); ?></textarea>    
+                        <textarea name="slide[<?php echo $i ?>][text]" rows="10" maxlength="150" /><?php echo esc_attr( $field['text'] ); ?></textarea>    
                     </div>
                     <!-- Slide button and link -->
                     <div class="slide-col">
@@ -133,9 +149,6 @@ function slide_content_meta_box_callback( $post ) {
                         <input type="url" name="slide[<?php echo $i ?>][link]" value="<?php echo esc_attr( $field['link'] ); ?>" />
                         <label><h4><?php _e( 'Slide button text', 'dfr_simple_slider' ); ?></h4></label>
                         <input type="text" name="slide[<?php echo $i ?>][btn-text]" value="<?php echo esc_attr( $field['btn-text'] ); ?>" />
-                    </div>
-                    <div class="slide-col">
-                        <a class="button remove-row" href="#1"><?php _e( 'Remove Slide', 'dfr_simple_slider' ); ?></a>    
                     </div>
                 </div>                
             </div>
@@ -146,10 +159,8 @@ function slide_content_meta_box_callback( $post ) {
         <!-- empty hidden one for jQuery -->
         <div class="slide-row empty-row screen-reader-text"">
             <div class="slide-header">
-                <!-- Slider number -->
-                <div class="slide-col">
-                    <input type="text" class="slide-number" id="slide-num" disabled="disabled" value="<?php _e( 'New Slide','dfr_simple_slider' ); ?>">
-                </div>
+                <h3><?php _e( 'New Slide','dfr_simple_slider' ); ?></h3>
+                <a class="button remove-row" href="#1"><?php _e( 'Remove Slide', 'dfr_simple_slider' ); ?></a>
             </div>
             <div class="slide-content">
                 <!-- Slide Background and images -->
@@ -169,23 +180,41 @@ function slide_content_meta_box_callback( $post ) {
                 <!-- Content Align -->
                 <div class="slide-col">
                     <label><h4><?php _e( 'Content Align', 'dfr_simple_slider' ); ?></h4></label>
-                    <input type="radio" id="align-left" name="slide[%s][align]" value="left" ></input>
-                    <label for="align-left"><?php _e( 'Left', 'dfr_simple_slider' ) ?></label>
-                    <input type="radio" id="align-center" name="slide[%s][align]" value="center" ></input>
-                    <label for="align-center">
-                        <?php //_e( 'center', 'dfr_simple_slider' ); ?>
-                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
-                            <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="40" y1="1.75" x2="40" y2="78.875"/>
-                            <rect x="20.188" y="5.25" fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="39.625" height="8.875"/>
-                            <rect x="4.313" y="19.75" fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" width="71.375" height="38"/>
-                            <path fill="#6D6E71" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M63.154,68.813c0,3.279-1.748,5.938-3.904,5.938
-                                H22.126c-2.156,0-3.904-2.658-3.904-5.938l0,0c0-3.279,1.748-5.938,3.904-5.938h37.123C61.406,62.875,63.154,65.533,63.154,68.813
-                                L63.154,68.813z"/>
-                        </svg>
-                    </label>
-                    <input type="radio" id="align-right" name="slide[%s][align]" value="right" ></input>
-                    <label for="align-right"><?php _e( 'Right', 'dfr_simple_slider' ) ?></label>
+                    <div class="content-align">
+                        <div class="radio-row">
+                            <input type="radio" id="align-left" name="slide[%s][align]" value="left" ></input>
+                            <label for="align-left">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                <rect x="11.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="6.667" y1="77.771" x2="6.667" y2="2.479"/>
+                            </svg>
+                            </label>
+                        </div>
+                        <div class="radio-row">
+                            <input type="radio" id="align-center" name="slide[%s][align]" value="center" ></input>
+                            <label for="align-center">
+                                <?php //_e( 'center', 'dfr_simple_slider' ); ?>
+                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                    <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                    <rect x="19.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                    <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="39.667" y1="12.771" x2="39.667" y2="2.479"/>
+                                    <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="39.667" y1="77.521" x2="39.667" y2="67.229"/>
+                                    <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="40" y1="37.438" x2="40" y2="42.938"/>
+                                </svg>
+                            </label>
+                        </div>
+                        <div class="radio-row">
+                            <input type="radio" id="align-right" name="slide[%s][align]" value="right" ></input>
+                            <label for="align-right">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                                <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
+                                <rect x="27.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
+                                <line fill="none" stroke="#8C8C8C" stroke-width="4" stroke-miterlimit="10" x1="73.667" y1="77.771" x2="73.667" y2="2.479"/>
+                            </svg>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <!-- Slide title and content -->
                 <div class="slide-col">
@@ -201,13 +230,10 @@ function slide_content_meta_box_callback( $post ) {
                     <label><h4><?php _e( 'Slide button text', 'dfr_simple_slider' ); ?></h4></label>
                     <input type="text" name="slide[%s][btn-text]" value="" />    
                 </div>
-                <div class="slide-col">
-                    <a class="button remove-row" href="#1"><?php _e( 'Remove Slide', 'dfr_simple_slider' ); ?></a>    
-                </div>
             </div>
             
         </div>
-        <p id="add-row-p-holder"><a id="add-row" class="btn btn-small btn-success" href="#">Insert Another Row</a></p>
+        <p id="add-row-p-holder"><a id="add-row" class="button" href="#">Insert Another Row</a></p>
     </div> 
     <?php
 

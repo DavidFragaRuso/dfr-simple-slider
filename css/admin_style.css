@@ -5,17 +5,61 @@
     margin-bottom: 1rem;
     padding: .5rem;
 }
+.slide-header{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem 0.5rem 0.5rem;
+}
+.slide-header h3{
+    margin: 0;
+}
 .slide-content{
     border-top: 1px solid #c4c4c4;
     padding-top: 1rem;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: column;
     gap: .5rem;
 }
 .slide-col label{
     display: block;
     margin-bottom: .4rem;
+    border: solid 1px transparent;
+}
+.content-align{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: .5em;
+}
+.radio-row{
+    flex-grow: 1;
+}
+.radio-row input[type=radio]{
+    display: none;
+    margin: 0 auto;
+}
+.radio-row label{
+    display: block;
+    margin-top: .5rem;
+    
+}
+.radio-row input[type=radio]:checked+label{
+    background-color: #d1d1d1;
+    border: solid 1px #b8b8b8;
+}
+.radio-row label svg{
+    display: block;
+    width: 50px;
+    height: auto;
+    margin: 0 auto;
+}
+.slide-col textarea, .slide-col input[type=text], .slide-col input[type=url]{
+    display: block;
+    width: 100%;
 }
 /* Style inputs */
 .slide-number{
@@ -34,4 +78,35 @@
     display: block;
     max-width: 150px;
     height: auto;
+}
+/* Media querys */
+@media screen and (min-width:768px){
+    .slide-content{
+        flex-wrap: wrap;
+        flex-direction: row;
+    } 
+    .slide-content .slide-col{
+        width: 100%;
+    }
+    .slide-content .slide-col:nth-child(1),
+    .slide-content .slide-col:nth-child(2){
+        width: 49%;
+    }  
+}
+@media screen and (min-width:1200px){
+    .radio-row label svg{
+        width: 80px;
+    }   
+}
+@media screen and (min-width:1600px){
+    .slide-content{
+        justify-content: space-between;
+    } 
+    .slide-content .slide-col{
+        width: initial;
+    }
+    .slide-content .slide-col:nth-child(1),
+    .slide-content .slide-col:nth-child(2){
+        width: initial;
+    }  
 }
