@@ -102,8 +102,8 @@ function slide_content_meta_box_callback( $post ) {
                         <label><h4><?php _e( 'Content Align', 'dfr_simple_slider' ); ?></h4></label>
                         <div class="content-align">
                             <div class="radio-row">
-                                <input type="radio" id="align-left" name="slide[<?php echo $i ?>][align]" value="left" <?php checked(  $field['align'], 'left' ); ?> ></input>
-                                <label for="align-left">
+                                <input type="radio" id="align-left-<?php echo $i ?>" name="slide[<?php echo $i ?>][align]" value="left" <?php checked(  $field['align'], 'left' ); ?> ></input>
+                                <label for="align-left-<?php echo $i ?>">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                     <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
                                     <rect x="11.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
@@ -112,8 +112,8 @@ function slide_content_meta_box_callback( $post ) {
                                 </label>
                             </div>
                             <div class="radio-row">
-                                <input type="radio" id="align-center" name="slide[<?php echo $i ?>][align]" value="center" <?php checked( $field['align'], 'center' ); ?> ></input>
-                                <label for="align-center">
+                                <input type="radio" id="align-center-<?php echo $i ?>" name="slide[<?php echo $i ?>][align]" value="center" <?php checked( $field['align'], 'center' ); ?> ></input>
+                                <label for="align-center-<?php echo $i ?>">
                                     <?php //_e( 'center', 'dfr_simple_slider' ); ?>
                                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                         <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
@@ -125,8 +125,8 @@ function slide_content_meta_box_callback( $post ) {
                                 </label>
                             </div>
                             <div class="radio-row">
-                                <input type="radio" id="align-right" name="slide[<?php echo $i ?>][align]" value="right" <?php checked( $field['align'], 'right' ); ?> ></input>
-                                <label for="align-right">
+                                <input type="radio" id="align-right-<?php echo $i ?>" name="slide[<?php echo $i ?>][align]" value="right" <?php checked( $field['align'], 'right' ); ?> ></input>
+                                <label for="align-right-<?php echo $i ?>">
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                     <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
                                     <rect x="27.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
@@ -182,8 +182,8 @@ function slide_content_meta_box_callback( $post ) {
                     <label><h4><?php _e( 'Content Align', 'dfr_simple_slider' ); ?></h4></label>
                     <div class="content-align">
                         <div class="radio-row">
-                            <input type="radio" id="align-left" name="slide[%s][align]" value="left" ></input>
-                            <label for="align-left">
+                            <input type="radio" id="align-left-new" name="slide[%s][align]" value="left" ></input>
+                            <label for="align-left-new">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                 <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
                                 <rect x="11.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
@@ -192,8 +192,8 @@ function slide_content_meta_box_callback( $post ) {
                             </label>
                         </div>
                         <div class="radio-row">
-                            <input type="radio" id="align-center" name="slide[%s][align]" value="center" ></input>
-                            <label for="align-center">
+                            <input type="radio" id="align-center-new" name="slide[%s][align]" value="center" ></input>
+                            <label for="align-center-new">
                                 <?php //_e( 'center', 'dfr_simple_slider' ); ?>
                                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                     <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
@@ -205,8 +205,8 @@ function slide_content_meta_box_callback( $post ) {
                             </label>
                         </div>
                         <div class="radio-row">
-                            <input type="radio" id="align-right" name="slide[%s][align]" value="right" ></input>
-                            <label for="align-right">
+                            <input type="radio" id="align-right-new" name="slide[%s][align]" value="right" ></input>
+                            <label for="align-right-new">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
                                 <rect x="11.667" y="42.938" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="56.667" height="24.667"/>
                                 <rect x="27.542" y="12.771" fill="none" stroke="#8C8C8C" stroke-width="2" stroke-miterlimit="10" width="40.25" height="24.667"/>
