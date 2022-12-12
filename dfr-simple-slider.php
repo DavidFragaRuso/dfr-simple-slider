@@ -96,6 +96,14 @@ function dfr_ss_admin_style() {
 }
 add_action('admin_enqueue_scripts', 'dfr_ss_admin_style');
 
+function dfr_ss_register_scripts(){
+    $css_url = plugin_dir_url(__FILE__) . 'css/style.css';
+    //$js_url = plugin_dir_url(__FILE__) . 'js/main.js';
+    wp_enqueue_style( 'ltw_base_style',  $css_url);
+    //wp_enqueue_script( 'ltw_base_js',  $js_url);
+}
+add_action('wp_enqueue_scripts', 'dfr_ss_register_scripts');
+
 // We separate the code into different files for better understanding.
 // Register the post type Slider.
 include 'inc/dfr-ss-post-type.php';
@@ -105,3 +113,6 @@ include 'inc/dfr-ss-post-meta.php';
 
 // Create repeater metabox
 include 'inc/dfr-ss-post-meta-box.php';
+
+// Manage Shortcodes for every slider created
+include 'inc/dfr-ss-shortcodes.php';

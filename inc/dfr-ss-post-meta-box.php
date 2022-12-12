@@ -28,7 +28,7 @@ function slide_content_meta_box_callback( $post ) {
         $repeater_slider_content[] = array(
             //'num' => '1',
             'img' => '',
-            'm-img' => '',
+            //'m-img' => '',
             'bg-color' => '#dddddd',
             'align' => 'left',
             'title' => '',
@@ -45,6 +45,10 @@ function slide_content_meta_box_callback( $post ) {
     <div id="repeatable-fieldset-one" class="wrap">
         <?php 
         $i = 0;
+
+        //var_dump( $post->ID );
+
+        echo '<p>Slider Shortcode: [slider id="' . $post->ID . '"]</p>';
 
         foreach( $repeater_slider_content as $field ) {
             ?>
@@ -74,25 +78,6 @@ function slide_content_meta_box_callback( $post ) {
                             <a href="#" class="dfr-img-upload button"><?php _e( 'Upload image', 'dfr_simple_slider' ) ?></a>
                             <a href="#" class="dfr-remove" style="display:none"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>
                             <input type="hidden" name="slide[<?php echo $i ?>][img]" value="">
-                            <?php
-                        endif;
-                        ?>
-                        <h4><?php _e( 'Image upload for mobile', 'dfr_simple_slider' ); ?></h4>
-                        <?php 
-                        if ( $field['m-img'] ) :
-                            $slide_m_img_url = wp_get_attachment_image_url( $field['m-img'], 'thumbnail' );
-                            ?>
-                            <a href="#" class="dfr-m-img-upload button">
-                                <img src="<?php echo esc_url( $slide_m_img_url ) ?>" />
-                            </a>
-                            <a href="#" class="dfr-m-remove"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>
-                            <input type="hidden" name="slide[<?php echo $i ?>][m-img]" value="<?php echo absint( $field['m-img'] ) ?>">
-                            <?php
-                            else :
-                            ?>
-                            <a href="#" class="dfr-m-img-upload button"><?php _e( 'Upload image', 'dfr_simple_slider' ) ?></a>
-                            <a href="#" class="dfr-m-remove" style="display:none"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>
-                            <input type="hidden" name="slide[<?php echo $i ?>][m-img]" value="">
                             <?php
                         endif;
                         ?>
@@ -172,10 +157,6 @@ function slide_content_meta_box_callback( $post ) {
                     <a href="#" class="dfr-img-upload button"><?php _e( 'Upload image', 'dfr_simple_slider' ) ?></a>
                     <a href="#" class="dfr-remove" style="display:none"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>
                     <input type="hidden" name="slide[%s][img]" value="">
-                    <h4><?php _e( 'Image upload for mobile', 'dfr_simple_slider' ); ?></h4>
-                    <a href="#" class="dfr-m-img-upload button"><?php _e( 'Upload image', 'dfr_simple_slider' ) ?></a>
-                    <a href="#" class="dfr-m-remove" style="display:none"><?php _e( 'Remove image', 'dfr_simple_slider' ) ?></a>
-                    <input type="hidden" name="slide[%s][m-img]" value="">
                 </div>
                 <!-- Content Align -->
                 <div class="slide-col">
@@ -280,7 +261,6 @@ function dfr_slider_save_post( $post_id ) {
             $new[] = array(
                 'bg-color' => isset( $slide['bg-color'] ) ? sanitize_text_field( $slide['bg-color'] ) : '',
                 'img' => isset( $slide['img'] ) ? intval( $slide['img'] ) : '',
-                'm-img' => isset( $slide['m-img'] ) ? intval( $slide['m-img'] ) : '',
                 'align' => isset( $slide['align'] ) ? sanitize_text_field( $slide['align'] ) : '',
                 'title' =>  isset( $slide['title'] ) ? wp_strip_all_tags( $slide['title'] ) : '',
                 'text' => isset( $slide['text'] ) ? allowed_html_chars( $slide['text'] ) : '',

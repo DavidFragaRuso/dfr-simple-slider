@@ -1,1 +1,31 @@
 /* CSS Rules on frontend here */
+.slider{
+  position: relative;
+  margin-bottom: 2em;
+}
+.swiper {
+    width: 100%;
+    height: 480px;
+    border: solid 1px #000000;
+}
+.swiper-slide{
+  position: relative;
+}
+.swiper-slide img{
+  object-fit: cover;
+}
+.slide-content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #ffffff;
+  z-index: 5;
+  
+}
+.content-center h2, .content-center p, .content-center a{
+  text-align: center;
+}
+.content-right h2, .content-right p, .content-right a{
+  text-align: right;
+}
